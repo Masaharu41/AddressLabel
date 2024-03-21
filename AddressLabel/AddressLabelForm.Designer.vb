@@ -22,6 +22,7 @@ Partial Class AddressLabelForm
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
         Me.DisplayButton = New System.Windows.Forms.Button()
         Me.ClearButton = New System.Windows.Forms.Button()
         Me.ExitButton = New System.Windows.Forms.Button()
@@ -40,6 +41,7 @@ Partial Class AddressLabelForm
         Me.InputGroupBox = New System.Windows.Forms.GroupBox()
         Me.OutputGroupBox = New System.Windows.Forms.GroupBox()
         Me.DisplayLabel = New System.Windows.Forms.Label()
+        Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
         Me.InputGroupBox.SuspendLayout()
         Me.OutputGroupBox.SuspendLayout()
         Me.SuspendLayout()
@@ -51,6 +53,7 @@ Partial Class AddressLabelForm
         Me.DisplayButton.Size = New System.Drawing.Size(183, 78)
         Me.DisplayButton.TabIndex = 7
         Me.DisplayButton.Text = "Display"
+        Me.ToolTip1.SetToolTip(Me.DisplayButton, "Display Address Label")
         Me.DisplayButton.UseVisualStyleBackColor = True
         '
         'ClearButton
@@ -60,6 +63,7 @@ Partial Class AddressLabelForm
         Me.ClearButton.Size = New System.Drawing.Size(183, 78)
         Me.ClearButton.TabIndex = 8
         Me.ClearButton.Text = "Clear"
+        Me.ToolTip1.SetToolTip(Me.ClearButton, "Clears All Data")
         Me.ClearButton.UseVisualStyleBackColor = True
         '
         'ExitButton
@@ -69,6 +73,7 @@ Partial Class AddressLabelForm
         Me.ExitButton.Size = New System.Drawing.Size(183, 78)
         Me.ExitButton.TabIndex = 9
         Me.ExitButton.Text = "Exit"
+        Me.ToolTip1.SetToolTip(Me.ExitButton, "Exit Program")
         Me.ExitButton.UseVisualStyleBackColor = True
         '
         'FirstNameTextBox
@@ -77,6 +82,7 @@ Partial Class AddressLabelForm
         Me.FirstNameTextBox.Name = "FirstNameTextBox"
         Me.FirstNameTextBox.Size = New System.Drawing.Size(306, 31)
         Me.FirstNameTextBox.TabIndex = 1
+        Me.ToolTip1.SetToolTip(Me.FirstNameTextBox, "Enter your First Name")
         '
         'FirstNameLabel
         '
@@ -93,6 +99,7 @@ Partial Class AddressLabelForm
         Me.LastNameTextBox.Name = "LastNameTextBox"
         Me.LastNameTextBox.Size = New System.Drawing.Size(306, 31)
         Me.LastNameTextBox.TabIndex = 2
+        Me.ToolTip1.SetToolTip(Me.LastNameTextBox, "Enter your Last Name")
         '
         'StreetAddressTextBox
         '
@@ -100,6 +107,7 @@ Partial Class AddressLabelForm
         Me.StreetAddressTextBox.Name = "StreetAddressTextBox"
         Me.StreetAddressTextBox.Size = New System.Drawing.Size(306, 31)
         Me.StreetAddressTextBox.TabIndex = 3
+        Me.ToolTip1.SetToolTip(Me.StreetAddressTextBox, "Enter your Street Address")
         '
         'CityTextBox
         '
@@ -107,6 +115,7 @@ Partial Class AddressLabelForm
         Me.CityTextBox.Name = "CityTextBox"
         Me.CityTextBox.Size = New System.Drawing.Size(306, 31)
         Me.CityTextBox.TabIndex = 4
+        Me.ToolTip1.SetToolTip(Me.CityTextBox, "Enter your City")
         '
         'StateTextBox
         '
@@ -114,6 +123,7 @@ Partial Class AddressLabelForm
         Me.StateTextBox.Name = "StateTextBox"
         Me.StateTextBox.Size = New System.Drawing.Size(101, 31)
         Me.StateTextBox.TabIndex = 5
+        Me.ToolTip1.SetToolTip(Me.StateTextBox, "Enter the Abbreviation of your State")
         '
         'ZipTextBox
         '
@@ -121,6 +131,7 @@ Partial Class AddressLabelForm
         Me.ZipTextBox.Name = "ZipTextBox"
         Me.ZipTextBox.Size = New System.Drawing.Size(101, 31)
         Me.ZipTextBox.TabIndex = 6
+        Me.ToolTip1.SetToolTip(Me.ZipTextBox, "Enter your Zip code")
         '
         'LastNameLabel
         '
@@ -246,4 +257,5 @@ Partial Class AddressLabelForm
     Friend WithEvents InputGroupBox As GroupBox
     Friend WithEvents OutputGroupBox As GroupBox
     Friend WithEvents DisplayLabel As Label
+    Friend WithEvents ToolTip1 As ToolTip
 End Class

@@ -2,7 +2,7 @@
 'RCET 2265
 'Spring 2024
 'Address Label
-'
+'https://github.com/Masaharu41/AddressLabel.git
 
 Option Explicit On
 Option Strict On
@@ -10,6 +10,7 @@ Option Strict On
 Public Class AddressLabelForm
 
     Private Sub StartUp(sender As Object, e As EventArgs) Handles Me.Load
+        'Clears all displayed data on program load
         FirstNameTextBox.Text = ""
         LastNameTextBox.Text = ""
         StreetAddressTextBox.Text = ""
@@ -19,10 +20,26 @@ Public Class AddressLabelForm
         DisplayLabel.Text = ""
     End Sub
     Private Sub ExitButton_Click(sender As Object, e As EventArgs) Handles ExitButton.Click
+        'Exits the program 
         Me.Close()
+    End Sub
+    Private Sub DisplayButton_Click(sender As Object, e As EventArgs) Handles DisplayButton.Click
+        'Displays the full display label
+        DisplayLabel.Text = CreateDisplay()
+    End Sub
+
+    Private Sub ClearButton_Click(sender As Object, e As EventArgs) Handles ClearButton.Click
+        DisplayLabel.Text = ""
+        FirstNameTextBox.Text = ""
+        LastNameTextBox.Text = ""
+        StreetAddressTextBox.Text = ""
+        CityTextBox.Text = ""
+        StateTextBox.Text = ""
+        ZipTextBox.Text = ""
     End Sub
 
     Function CreateDisplay() As String
+        'function variables 
         Dim displayText As String
         Dim lettersOfFirst As String
         Dim lettersOfLast As String
@@ -64,17 +81,5 @@ Public Class AddressLabelForm
         Return displayText
     End Function
 
-    Private Sub DisplayButton_Click(sender As Object, e As EventArgs) Handles DisplayButton.Click
-        DisplayLabel.Text = CreateDisplay()
-    End Sub
 
-    Private Sub ClearButton_Click(sender As Object, e As EventArgs) Handles ClearButton.Click
-        DisplayLabel.Text = ""
-        FirstNameTextBox.Text = ""
-        LastNameTextBox.Text = ""
-        StreetAddressTextBox.Text = ""
-        CityTextBox.Text = ""
-        StateTextBox.Text = ""
-        ZipTextBox.Text = ""
-    End Sub
 End Class
