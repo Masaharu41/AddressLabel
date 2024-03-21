@@ -24,16 +24,43 @@ Public Class AddressLabelForm
 
     Function CreateDisplay() As String
         Dim displayText As String
+        Dim lettersOfFirst As String
+        Dim lettersOfLast As String
         Dim fullName As String
         Dim fullAddress As String
+        Dim zipInt As Integer
+        Dim formatErrors As String
+        Dim foundError As Boolean
 
-        fullName = FirstNameTextBox.Text & LastNameTextBox.Text
+        'two methods which convert the inputs from the name textboxs into only their letter components
+
+        lettersOfFirst = String.Concat(FirstNameTextBox.Text.Where(AddressOf Char.IsLetter))
+        lettersOfLast = String.Concat(LastNameTextBox.Text.Where(AddressOf Char.IsLetter))
+
+        'Concatenates the first and last names as only letters into one variable
+        fullName = lettersOfFirst & lettersOfLast
+
         If Len(StateTextBox.Text) = 2 Then
             fullAddress = CityTextBox.Text & "," & StateTextBox.Text & " " & ZipTextBox.Text
         Else
-            MsgBox("Please use the State Abbreviation")
+            formatErrors = "Please use the State Abbreviation" & vbNewLine
+            foundError = True
         End If
-        displayText = fullName & vbNewLine & StreetAddressTextBox.Text & vbNewLine & fullAddress
+
+        Try
+            zipInt = CInt(ZipTextBox.Text)
+        Catch ex As Exception
+            formatErrors = "Zip can only be numbers"
+            foundError = True
+        End Try
+
+        If foundError = False Then
+            displayText = fullName & vbNewLine & StreetAddressTextBox.Text & vbNewLine & fullAddress
+        ElseIf foundError = True Then
+            MsgBox(formatErrors)
+            displayText = ""
+        End If
+
         Return displayText
     End Function
 
@@ -43,5 +70,11 @@ Public Class AddressLabelForm
 
     Private Sub ClearButton_Click(sender As Object, e As EventArgs) Handles ClearButton.Click
         DisplayLabel.Text = ""
+        FirstNameTextBox.Text = ""
+        LastNameTextBox.Text = ""
+        StreetAddressTextBox.Text = ""
+        CityTextBox.Text = ""
+        StateTextBox.Text = ""
+        ZipTextBox.Text = ""
     End Sub
 End Class
