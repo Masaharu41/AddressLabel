@@ -89,35 +89,35 @@ Partial Class AddressLabelForm
         '
         'LastNameTextBox
         '
-        Me.LastNameTextBox.Location = New System.Drawing.Point(101, 154)
+        Me.LastNameTextBox.Location = New System.Drawing.Point(20, 137)
         Me.LastNameTextBox.Name = "LastNameTextBox"
         Me.LastNameTextBox.Size = New System.Drawing.Size(306, 31)
         Me.LastNameTextBox.TabIndex = 2
         '
         'StreetAddressTextBox
         '
-        Me.StreetAddressTextBox.Location = New System.Drawing.Point(101, 228)
+        Me.StreetAddressTextBox.Location = New System.Drawing.Point(20, 211)
         Me.StreetAddressTextBox.Name = "StreetAddressTextBox"
         Me.StreetAddressTextBox.Size = New System.Drawing.Size(306, 31)
         Me.StreetAddressTextBox.TabIndex = 3
         '
         'CityTextBox
         '
-        Me.CityTextBox.Location = New System.Drawing.Point(101, 301)
+        Me.CityTextBox.Location = New System.Drawing.Point(20, 284)
         Me.CityTextBox.Name = "CityTextBox"
         Me.CityTextBox.Size = New System.Drawing.Size(306, 31)
         Me.CityTextBox.TabIndex = 4
         '
         'StateTextBox
         '
-        Me.StateTextBox.Location = New System.Drawing.Point(101, 373)
+        Me.StateTextBox.Location = New System.Drawing.Point(20, 356)
         Me.StateTextBox.Name = "StateTextBox"
         Me.StateTextBox.Size = New System.Drawing.Size(101, 31)
         Me.StateTextBox.TabIndex = 5
         '
         'ZipTextBox
         '
-        Me.ZipTextBox.Location = New System.Drawing.Point(20, 412)
+        Me.ZipTextBox.Location = New System.Drawing.Point(20, 422)
         Me.ZipTextBox.Name = "ZipTextBox"
         Me.ZipTextBox.Size = New System.Drawing.Size(101, 31)
         Me.ZipTextBox.TabIndex = 6
@@ -125,7 +125,7 @@ Partial Class AddressLabelForm
         'LastNameLabel
         '
         Me.LastNameLabel.AutoSize = True
-        Me.LastNameLabel.Location = New System.Drawing.Point(96, 127)
+        Me.LastNameLabel.Location = New System.Drawing.Point(15, 110)
         Me.LastNameLabel.Name = "LastNameLabel"
         Me.LastNameLabel.Size = New System.Drawing.Size(115, 25)
         Me.LastNameLabel.TabIndex = 10
@@ -134,7 +134,7 @@ Partial Class AddressLabelForm
         'StreetAddressLabel
         '
         Me.StreetAddressLabel.AutoSize = True
-        Me.StreetAddressLabel.Location = New System.Drawing.Point(96, 200)
+        Me.StreetAddressLabel.Location = New System.Drawing.Point(15, 183)
         Me.StreetAddressLabel.Name = "StreetAddressLabel"
         Me.StreetAddressLabel.Size = New System.Drawing.Size(154, 25)
         Me.StreetAddressLabel.TabIndex = 11
@@ -143,7 +143,7 @@ Partial Class AddressLabelForm
         'CityLabel
         '
         Me.CityLabel.AutoSize = True
-        Me.CityLabel.Location = New System.Drawing.Point(96, 273)
+        Me.CityLabel.Location = New System.Drawing.Point(15, 256)
         Me.CityLabel.Name = "CityLabel"
         Me.CityLabel.Size = New System.Drawing.Size(49, 25)
         Me.CityLabel.TabIndex = 12
@@ -152,7 +152,7 @@ Partial Class AddressLabelForm
         'StateLabel
         '
         Me.StateLabel.AutoSize = True
-        Me.StateLabel.Location = New System.Drawing.Point(96, 345)
+        Me.StateLabel.Location = New System.Drawing.Point(15, 328)
         Me.StateLabel.Name = "StateLabel"
         Me.StateLabel.Size = New System.Drawing.Size(62, 25)
         Me.StateLabel.TabIndex = 13
@@ -161,7 +161,7 @@ Partial Class AddressLabelForm
         'ZipLabel
         '
         Me.ZipLabel.AutoSize = True
-        Me.ZipLabel.Location = New System.Drawing.Point(15, 384)
+        Me.ZipLabel.Location = New System.Drawing.Point(15, 394)
         Me.ZipLabel.Name = "ZipLabel"
         Me.ZipLabel.Size = New System.Drawing.Size(42, 25)
         Me.ZipLabel.TabIndex = 14
@@ -170,7 +170,15 @@ Partial Class AddressLabelForm
         'InputGroupBox
         '
         Me.InputGroupBox.Controls.Add(Me.ZipTextBox)
+        Me.InputGroupBox.Controls.Add(Me.StateLabel)
         Me.InputGroupBox.Controls.Add(Me.ZipLabel)
+        Me.InputGroupBox.Controls.Add(Me.CityLabel)
+        Me.InputGroupBox.Controls.Add(Me.StreetAddressLabel)
+        Me.InputGroupBox.Controls.Add(Me.LastNameLabel)
+        Me.InputGroupBox.Controls.Add(Me.LastNameTextBox)
+        Me.InputGroupBox.Controls.Add(Me.StateTextBox)
+        Me.InputGroupBox.Controls.Add(Me.StreetAddressTextBox)
+        Me.InputGroupBox.Controls.Add(Me.CityTextBox)
         Me.InputGroupBox.Location = New System.Drawing.Point(81, 27)
         Me.InputGroupBox.Name = "InputGroupBox"
         Me.InputGroupBox.Size = New System.Drawing.Size(360, 474)
@@ -203,14 +211,6 @@ Partial Class AddressLabelForm
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1113, 606)
         Me.Controls.Add(Me.OutputGroupBox)
-        Me.Controls.Add(Me.StateLabel)
-        Me.Controls.Add(Me.CityLabel)
-        Me.Controls.Add(Me.StreetAddressLabel)
-        Me.Controls.Add(Me.LastNameLabel)
-        Me.Controls.Add(Me.StateTextBox)
-        Me.Controls.Add(Me.CityTextBox)
-        Me.Controls.Add(Me.StreetAddressTextBox)
-        Me.Controls.Add(Me.LastNameTextBox)
         Me.Controls.Add(Me.FirstNameLabel)
         Me.Controls.Add(Me.FirstNameTextBox)
         Me.Controls.Add(Me.ExitButton)

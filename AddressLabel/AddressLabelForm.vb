@@ -23,10 +23,25 @@ Public Class AddressLabelForm
     End Sub
 
     Function CreateDisplay() As String
+        Dim displayText As String
+        Dim fullName As String
+        Dim fullAddress As String
 
+        fullName = FirstNameTextBox.Text & LastNameTextBox.Text
+        If Len(StateTextBox.Text) = 2 Then
+            fullAddress = CityTextBox.Text & "," & StateTextBox.Text & " " & ZipTextBox.Text
+        Else
+            MsgBox("Please use the State Abbreviation")
+        End If
+        displayText = fullName & vbNewLine & StreetAddressTextBox.Text & vbNewLine & fullAddress
+        Return displayText
     End Function
 
+    Private Sub DisplayButton_Click(sender As Object, e As EventArgs) Handles DisplayButton.Click
+        DisplayLabel.Text = CreateDisplay()
+    End Sub
 
-
-
+    Private Sub ClearButton_Click(sender As Object, e As EventArgs) Handles ClearButton.Click
+        DisplayLabel.Text = ""
+    End Sub
 End Class
