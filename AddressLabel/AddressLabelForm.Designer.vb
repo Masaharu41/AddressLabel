@@ -82,7 +82,7 @@ Partial Class AddressLabelForm
         Me.FirstNameTextBox.Name = "FirstNameTextBox"
         Me.FirstNameTextBox.Size = New System.Drawing.Size(306, 31)
         Me.FirstNameTextBox.TabIndex = 1
-        Me.ToolTip1.SetToolTip(Me.FirstNameTextBox, "Enter your First Name")
+        Me.ToolTip1.SetToolTip(Me.FirstNameTextBox, "Enter your First Name" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "Only Displayed as Letters")
         '
         'FirstNameLabel
         '
@@ -99,7 +99,7 @@ Partial Class AddressLabelForm
         Me.LastNameTextBox.Name = "LastNameTextBox"
         Me.LastNameTextBox.Size = New System.Drawing.Size(306, 31)
         Me.LastNameTextBox.TabIndex = 2
-        Me.ToolTip1.SetToolTip(Me.LastNameTextBox, "Enter your Last Name")
+        Me.ToolTip1.SetToolTip(Me.LastNameTextBox, "Enter your Last Name" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "Only Displayes as Letters")
         '
         'StreetAddressTextBox
         '

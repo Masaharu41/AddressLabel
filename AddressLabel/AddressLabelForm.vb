@@ -29,6 +29,7 @@ Public Class AddressLabelForm
     End Sub
 
     Private Sub ClearButton_Click(sender As Object, e As EventArgs) Handles ClearButton.Click
+        'Clears all Displayed Data
         DisplayLabel.Text = ""
         FirstNameTextBox.Text = ""
         LastNameTextBox.Text = ""
@@ -45,6 +46,7 @@ Public Class AddressLabelForm
         Dim lettersOfLast As String
         Dim fullName As String
         Dim fullAddress As String
+        Dim lettersOfState As String
         Dim zipInt As Integer
         Dim formatErrors As String
         Dim foundError As Boolean
@@ -57,8 +59,12 @@ Public Class AddressLabelForm
         'Concatenates the first and last names as only letters into one variable
         fullName = lettersOfFirst & lettersOfLast
 
+        'Requires that the state is only two letters long and converts to letters only
+
+        lettersOfState = String.Concat(StateTextBox.Text.Where(AddressOf Char.IsLetter))
+
         If Len(StateTextBox.Text) = 2 Then
-            fullAddress = CityTextBox.Text & "," & StateTextBox.Text & " " & ZipTextBox.Text
+            fullAddress = CityTextBox.Text & "," & UCase(StateTextBox.Text) & " " & ZipTextBox.Text
         Else
             formatErrors = "Please use the State Abbreviation" & vbNewLine
             foundError = True
