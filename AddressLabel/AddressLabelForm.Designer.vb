@@ -42,37 +42,43 @@ Partial Class AddressLabelForm
         Me.OutputGroupBox = New System.Windows.Forms.GroupBox()
         Me.DisplayLabel = New System.Windows.Forms.Label()
         Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
+        Me.AddressContextMenuStrip = New System.Windows.Forms.ContextMenuStrip(Me.components)
+        Me.DisplayToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ClearToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ExitToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
         Me.InputGroupBox.SuspendLayout()
         Me.OutputGroupBox.SuspendLayout()
+        Me.AddressContextMenuStrip.SuspendLayout()
         Me.SuspendLayout()
         '
         'DisplayButton
         '
-        Me.DisplayButton.Location = New System.Drawing.Point(501, 449)
+        Me.DisplayButton.Location = New System.Drawing.Point(397, 425)
         Me.DisplayButton.Name = "DisplayButton"
         Me.DisplayButton.Size = New System.Drawing.Size(183, 78)
         Me.DisplayButton.TabIndex = 2
-        Me.DisplayButton.Text = "Display"
+        Me.DisplayButton.Text = "&Display"
         Me.ToolTip1.SetToolTip(Me.DisplayButton, "Display Address Label")
         Me.DisplayButton.UseVisualStyleBackColor = True
         '
         'ClearButton
         '
-        Me.ClearButton.Location = New System.Drawing.Point(690, 449)
+        Me.ClearButton.Location = New System.Drawing.Point(586, 425)
         Me.ClearButton.Name = "ClearButton"
         Me.ClearButton.Size = New System.Drawing.Size(183, 78)
         Me.ClearButton.TabIndex = 3
-        Me.ClearButton.Text = "Clear"
+        Me.ClearButton.Text = "C&lear"
         Me.ToolTip1.SetToolTip(Me.ClearButton, "Clears All Data")
         Me.ClearButton.UseVisualStyleBackColor = True
         '
         'ExitButton
         '
-        Me.ExitButton.Location = New System.Drawing.Point(879, 449)
+        Me.ExitButton.Location = New System.Drawing.Point(775, 425)
         Me.ExitButton.Name = "ExitButton"
         Me.ExitButton.Size = New System.Drawing.Size(183, 78)
         Me.ExitButton.TabIndex = 4
-        Me.ExitButton.Text = "Exit"
+        Me.ExitButton.Text = "&Exit"
         Me.ToolTip1.SetToolTip(Me.ExitButton, "Exit Program")
         Me.ExitButton.UseVisualStyleBackColor = True
         '
@@ -192,7 +198,7 @@ Partial Class AddressLabelForm
         Me.InputGroupBox.Controls.Add(Me.StateTextBox)
         Me.InputGroupBox.Controls.Add(Me.StreetAddressTextBox)
         Me.InputGroupBox.Controls.Add(Me.CityTextBox)
-        Me.InputGroupBox.Location = New System.Drawing.Point(81, 27)
+        Me.InputGroupBox.Location = New System.Drawing.Point(31, 27)
         Me.InputGroupBox.Name = "InputGroupBox"
         Me.InputGroupBox.Size = New System.Drawing.Size(360, 474)
         Me.InputGroupBox.TabIndex = 1
@@ -202,9 +208,9 @@ Partial Class AddressLabelForm
         'OutputGroupBox
         '
         Me.OutputGroupBox.Controls.Add(Me.DisplayLabel)
-        Me.OutputGroupBox.Location = New System.Drawing.Point(467, 27)
+        Me.OutputGroupBox.Location = New System.Drawing.Point(407, 27)
         Me.OutputGroupBox.Name = "OutputGroupBox"
-        Me.OutputGroupBox.Size = New System.Drawing.Size(387, 255)
+        Me.OutputGroupBox.Size = New System.Drawing.Size(551, 387)
         Me.OutputGroupBox.TabIndex = 5
         Me.OutputGroupBox.TabStop = False
         Me.OutputGroupBox.Text = "Address Label"
@@ -212,11 +218,42 @@ Partial Class AddressLabelForm
         'DisplayLabel
         '
         Me.DisplayLabel.AutoSize = True
+        Me.DisplayLabel.Font = New System.Drawing.Font("Calibri", 12.0!)
         Me.DisplayLabel.Location = New System.Drawing.Point(29, 38)
         Me.DisplayLabel.Name = "DisplayLabel"
-        Me.DisplayLabel.Size = New System.Drawing.Size(77, 25)
+        Me.DisplayLabel.Size = New System.Drawing.Size(101, 39)
         Me.DisplayLabel.TabIndex = 0
         Me.DisplayLabel.Text = "Label1"
+        '
+        'AddressContextMenuStrip
+        '
+        Me.AddressContextMenuStrip.ImageScalingSize = New System.Drawing.Size(32, 32)
+        Me.AddressContextMenuStrip.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.DisplayToolStripMenuItem, Me.ClearToolStripMenuItem, Me.ToolStripMenuItem1, Me.ExitToolStripMenuItem})
+        Me.AddressContextMenuStrip.Name = "AddressContextMenuStrip"
+        Me.AddressContextMenuStrip.Size = New System.Drawing.Size(166, 156)
+        '
+        'DisplayToolStripMenuItem
+        '
+        Me.DisplayToolStripMenuItem.Name = "DisplayToolStripMenuItem"
+        Me.DisplayToolStripMenuItem.Size = New System.Drawing.Size(300, 38)
+        Me.DisplayToolStripMenuItem.Text = "Display"
+        '
+        'ClearToolStripMenuItem
+        '
+        Me.ClearToolStripMenuItem.Name = "ClearToolStripMenuItem"
+        Me.ClearToolStripMenuItem.Size = New System.Drawing.Size(300, 38)
+        Me.ClearToolStripMenuItem.Text = "Clear"
+        '
+        'ExitToolStripMenuItem
+        '
+        Me.ExitToolStripMenuItem.Name = "ExitToolStripMenuItem"
+        Me.ExitToolStripMenuItem.Size = New System.Drawing.Size(300, 38)
+        Me.ExitToolStripMenuItem.Text = "Exit"
+        '
+        'ToolStripMenuItem1
+        '
+        Me.ToolStripMenuItem1.Name = "ToolStripMenuItem1"
+        Me.ToolStripMenuItem1.Size = New System.Drawing.Size(165, 38)
         '
         'AddressLabelForm
         '
@@ -234,6 +271,7 @@ Partial Class AddressLabelForm
         Me.InputGroupBox.PerformLayout()
         Me.OutputGroupBox.ResumeLayout(False)
         Me.OutputGroupBox.PerformLayout()
+        Me.AddressContextMenuStrip.ResumeLayout(False)
         Me.ResumeLayout(False)
 
     End Sub
@@ -257,4 +295,9 @@ Partial Class AddressLabelForm
     Friend WithEvents OutputGroupBox As GroupBox
     Friend WithEvents DisplayLabel As Label
     Friend WithEvents ToolTip1 As ToolTip
+    Friend WithEvents AddressContextMenuStrip As ContextMenuStrip
+    Friend WithEvents DisplayToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents ClearToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents ExitToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents ToolStripMenuItem1 As ToolStripMenuItem
 End Class
