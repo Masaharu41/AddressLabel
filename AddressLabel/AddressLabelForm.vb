@@ -55,6 +55,8 @@ Public Class AddressLabelForm
         Dim emptyFinder As Boolean
 
         emptyFinder = False
+        'if statements that check that the incoming strings are present and not empty or null
+        'code will not execute unless all information is inputed 
         If String.IsNullOrEmpty(FirstNameTextBox.Text) Then
             emptyFinder = True
             formatErrorsTracker = "First Name cannot be empty" & vbNewLine
@@ -85,10 +87,11 @@ Public Class AddressLabelForm
             formatErrorsTracker = formatErrors & "Zip cannot be empty" & vbNewLine
             formatErrors = formatErrorsTracker
         End If
-
+        'if there were no errors found the the primary code will be executed
+        'the purpose of the code is to include as many built in tools which will
+        'automatically resolve user format errors or issue warnings when inputed
+        'data is not valid for an address
         If emptyFinder = False Then
-
-
 
             'two methods which convert the inputs from the name textboxs into only their letter components
 
