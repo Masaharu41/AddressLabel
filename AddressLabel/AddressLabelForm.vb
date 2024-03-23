@@ -1,11 +1,12 @@
-﻿'Owen Fujii
+﻿Option Explicit On
+Option Strict On
+'Owen Fujii
 'RCET 2265
 'Spring 2024
 'Address Label
 'https://github.com/Masaharu41/AddressLabel.git
 
-Option Explicit On
-Option Strict On
+Imports System.Runtime.CompilerServices
 
 Public Class AddressLabelForm
 
@@ -48,48 +49,92 @@ Public Class AddressLabelForm
         Dim fullAddress As String
         Dim lettersOfState As String
         Dim zipInt As Integer
+        Dim formatErrorsTracker As String
         Dim formatErrors As String
         Dim foundError As Boolean
+        Dim emptyFinder As Boolean
 
-        'two methods which convert the inputs from the name textboxs into only their letter components
+        emptyFinder = False
+        If String.IsNullOrEmpty(FirstNameTextBox.Text) Then
+            emptyFinder = True
+            formatErrorsTracker = "First Name cannot be empty" & vbNewLine
+            formatErrors = formatErrorsTracker
+        End If
+        If String.IsNullOrEmpty(LastNameTextBox.Text) Then
+            emptyFinder = True
+            formatErrorsTracker = formatErrors & "Last Name cannot be empty" & vbNewLine
+            formatErrors = formatErrorsTracker
+        End If
+        If String.IsNullOrEmpty(StreetAddressTextBox.Text) Then
+            emptyFinder = True
+            formatErrorsTracker = formatErrors & "Address cannot be empty" & vbNewLine
+            formatErrors = formatErrorsTracker
+        End If
+        If String.IsNullOrEmpty(CityTextBox.Text) Then
+            emptyFinder = True
+            formatErrorsTracker = formatErrors & "City cannot be empty" & vbNewLine
+            formatErrors = formatErrorsTracker
+        End If
+        If String.IsNullOrEmpty(StateTextBox.Text) Then
+            emptyFinder = True
+            formatErrorsTracker = formatErrors & "State cannot be empty" & vbNewLine
+            formatErrors = formatErrorsTracker
+        End If
+        If String.IsNullOrEmpty(ZipTextBox.Text) Then
+            emptyFinder = True
+            formatErrorsTracker = formatErrors & "Zip cannot be empty" & vbNewLine
+            formatErrors = formatErrorsTracker
+        End If
 
-        lettersOfFirst = String.Concat(FirstNameTextBox.Text.Where(AddressOf Char.IsLetter))
-        lettersOfLast = String.Concat(LastNameTextBox.Text.Where(AddressOf Char.IsLetter))
+        If emptyFinder = False Then
 
-        'Concatenates the first and last names as only letters into one variable
-        fullName = FirstLetterUpper(lettersOfFirst) & " " & FirstLetterUpper(lettersOfLast)
 
-        'Requires that the state is only two letters long and converts to letters only
 
-        Try
-            zipInt = CInt(ZipTextBox.Text)
-        Catch ex As Exception
-            formatErrors = "Zip can only be numbers"
-            foundError = True
-        End Try
+            'two methods which convert the inputs from the name textboxs into only their letter components
 
-        lettersOfState = String.Concat(StateTextBox.Text.Where(AddressOf Char.IsLetter))
+            lettersOfFirst = String.Concat(FirstNameTextBox.Text.Where(AddressOf Char.IsLetter))
+            lettersOfLast = String.Concat(LastNameTextBox.Text.Where(AddressOf Char.IsLetter))
 
-        If Len(StateTextBox.Text) = 2 Then
-            fullAddress = CityTextBox.Text & ", " & UCase(StateTextBox.Text) & " " & ZipTextBox.Text
+            'Concatenates the first and last names as only letters into one variable
+            fullName = FirstLetterUpper(lettersOfFirst) & " " & FirstLetterUpper(lettersOfLast)
+
+            'a try catch which checks that the zip code is only integer values
+            Try
+                zipInt = CInt(ZipTextBox.Text)
+            Catch ex As Exception
+                formatErrorsTracker = "Zip can only be numbers" & vbNewLine
+                formatErrors = formatErrorsTracker
+                foundError = True
+            End Try
+            'Requires that the state is only two letters long and converts to letters only
+            lettersOfState = String.Concat(StateTextBox.Text.Where(AddressOf Char.IsLetter))
+
+            If Len(StateTextBox.Text) = 2 Then
+                fullAddress = CityTextBox.Text & ", " & UCase(StateTextBox.Text) & " " & zipInt
+            Else
+                formatErrorsTracker = formatErrors & "Please use the State Abbreviation" & vbNewLine
+                formatErrors = formatErrorsTracker
+
+                foundError = True
+            End If
+            'Display will only be shown if there are no errors with the inputs
+            If foundError = False Then
+                displayText = fullName & vbNewLine & StreetAddressTextBox.Text & vbNewLine & fullAddress
+            ElseIf foundError = True Then
+                MsgBox(formatErrorsTracker)
+                displayText = ""
+            End If
+
+            Return displayText
         Else
-            formatErrors = "Please use the State Abbreviation" & vbNewLine
-            foundError = True
-        End If
-
-
-
-        If foundError = False Then
-            displayText = fullName & vbNewLine & StreetAddressTextBox.Text & vbNewLine & fullAddress
-        ElseIf foundError = True Then
             MsgBox(formatErrors)
-            displayText = ""
+            Return ""
         End If
-
-        Return displayText
     End Function
 
     Function FirstLetterUpper(Val As String) As String
+        'this function converts the inputed string into char to convert the first
+        'letter to upper case and will exit if the string is an empty value
         If String.IsNullOrEmpty(Val) Then
             Return Val
         End If
