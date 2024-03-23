@@ -57,18 +57,9 @@ Public Class AddressLabelForm
         lettersOfLast = String.Concat(LastNameTextBox.Text.Where(AddressOf Char.IsLetter))
 
         'Concatenates the first and last names as only letters into one variable
-        fullName = lettersOfFirst & lettersOfLast
+        fullName = FirstLetterUpper(lettersOfFirst) & " " & FirstLetterUpper(lettersOfLast)
 
         'Requires that the state is only two letters long and converts to letters only
-
-        lettersOfState = String.Concat(StateTextBox.Text.Where(AddressOf Char.IsLetter))
-
-        If Len(StateTextBox.Text) = 2 Then
-            fullAddress = CityTextBox.Text & "," & UCase(StateTextBox.Text) & " " & ZipTextBox.Text
-        Else
-            formatErrors = "Please use the State Abbreviation" & vbNewLine
-            foundError = True
-        End If
 
         Try
             zipInt = CInt(ZipTextBox.Text)
@@ -76,6 +67,17 @@ Public Class AddressLabelForm
             formatErrors = "Zip can only be numbers"
             foundError = True
         End Try
+
+        lettersOfState = String.Concat(StateTextBox.Text.Where(AddressOf Char.IsLetter))
+
+        If Len(StateTextBox.Text) = 2 Then
+            fullAddress = CityTextBox.Text & ", " & UCase(StateTextBox.Text) & " " & ZipTextBox.Text
+        Else
+            formatErrors = "Please use the State Abbreviation" & vbNewLine
+            foundError = True
+        End If
+
+
 
         If foundError = False Then
             displayText = fullName & vbNewLine & StreetAddressTextBox.Text & vbNewLine & fullAddress
@@ -87,5 +89,16 @@ Public Class AddressLabelForm
         Return displayText
     End Function
 
+    Function FirstLetterUpper(Val As String) As String
+        If String.IsNullOrEmpty(Val) Then
+            Return Val
+        End If
+
+        Dim array() As Char = Val.ToCharArray
+
+        array(0) = Char.ToUpper(array(0))
+
+        Return array
+    End Function
 
 End Class
