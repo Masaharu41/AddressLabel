@@ -1,10 +1,11 @@
-﻿Option Explicit On
-Option Strict On
-'Owen Fujii
+﻿'Owen Fujii
 'RCET 2265
 'Spring 2024
 'Address Label
 'https://github.com/Masaharu41/AddressLabel.git
+
+Option Explicit On
+Option Strict On
 
 Imports System.Globalization
 Public Class AddressLabelForm
@@ -46,7 +47,7 @@ Public Class AddressLabelForm
         Dim lettersOfLast As String
         Dim fullName As String
         Dim fullAddress As String
-        Dim lettersOfState As String
+        Dim onlyStateLetters As String
         Dim zipInt As Integer
         Dim formatErrorsTracker As String
         Dim formatErrors As String
@@ -112,10 +113,12 @@ Public Class AddressLabelForm
                 foundError = True
             End Try
             'Requires that the state is only two letters long and converts to letters only
-            lettersOfState = String.Concat(StateTextBox.Text.Where(AddressOf Char.IsLetter))
 
-            If Len(StateTextBox.Text) = 2 Then
-                fullAddress = ti.ToTitleCase(CityTextBox.Text) & ", " & UCase(StateTextBox.Text) & " " & zipInt
+            onlyStateLetters = String.Concat(StateTextBox.Text.Where(AddressOf Char.IsLetter))
+
+            If Len(onlyStateLetters) = 2 Then
+
+                fullAddress = ti.ToTitleCase(CityTextBox.Text) & ", " & UCase(onlyStateLetters) & " " & zipInt
             Else
                 formatErrorsTracker = formatErrors & "Please use the State Abbreviation" & vbNewLine
                 formatErrors = formatErrorsTracker
@@ -150,5 +153,6 @@ Public Class AddressLabelForm
 
         Return array
     End Function
+
 
 End Class
