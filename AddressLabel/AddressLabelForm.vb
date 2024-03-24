@@ -6,8 +6,6 @@ Option Strict On
 'Address Label
 'https://github.com/Masaharu41/AddressLabel.git
 
-Imports System.Runtime.CompilerServices
-
 Public Class AddressLabelForm
 
     Private Sub StartUp(sender As Object, e As EventArgs) Handles Me.Load
