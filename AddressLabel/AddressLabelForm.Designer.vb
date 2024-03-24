@@ -45,8 +45,8 @@ Partial Class AddressLabelForm
         Me.AddressContextMenuStrip = New System.Windows.Forms.ContextMenuStrip(Me.components)
         Me.DisplayToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ClearToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ExitToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ExitToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.InputGroupBox.SuspendLayout()
         Me.OutputGroupBox.SuspendLayout()
         Me.AddressContextMenuStrip.SuspendLayout()
@@ -235,25 +235,25 @@ Partial Class AddressLabelForm
         'DisplayToolStripMenuItem
         '
         Me.DisplayToolStripMenuItem.Name = "DisplayToolStripMenuItem"
-        Me.DisplayToolStripMenuItem.Size = New System.Drawing.Size(300, 38)
+        Me.DisplayToolStripMenuItem.Size = New System.Drawing.Size(165, 38)
         Me.DisplayToolStripMenuItem.Text = "Display"
         '
         'ClearToolStripMenuItem
         '
         Me.ClearToolStripMenuItem.Name = "ClearToolStripMenuItem"
-        Me.ClearToolStripMenuItem.Size = New System.Drawing.Size(300, 38)
+        Me.ClearToolStripMenuItem.Size = New System.Drawing.Size(165, 38)
         Me.ClearToolStripMenuItem.Text = "Clear"
-        '
-        'ExitToolStripMenuItem
-        '
-        Me.ExitToolStripMenuItem.Name = "ExitToolStripMenuItem"
-        Me.ExitToolStripMenuItem.Size = New System.Drawing.Size(300, 38)
-        Me.ExitToolStripMenuItem.Text = "Exit"
         '
         'ToolStripMenuItem1
         '
         Me.ToolStripMenuItem1.Name = "ToolStripMenuItem1"
         Me.ToolStripMenuItem1.Size = New System.Drawing.Size(165, 38)
+        '
+        'ExitToolStripMenuItem
+        '
+        Me.ExitToolStripMenuItem.Name = "ExitToolStripMenuItem"
+        Me.ExitToolStripMenuItem.Size = New System.Drawing.Size(165, 38)
+        Me.ExitToolStripMenuItem.Text = "Exit"
         '
         'AddressLabelForm
         '

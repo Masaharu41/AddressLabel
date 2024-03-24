@@ -6,6 +6,7 @@ Option Strict On
 'Address Label
 'https://github.com/Masaharu41/AddressLabel.git
 
+Imports System.Globalization
 Public Class AddressLabelForm
 
     Private Sub StartUp(sender As Object, e As EventArgs) Handles Me.Load
@@ -51,6 +52,9 @@ Public Class AddressLabelForm
         Dim formatErrors As String
         Dim foundError As Boolean
         Dim emptyFinder As Boolean
+        'special dimention which calls the systems information about the users language
+        'this is important for converting to ToTitleCase methods with the proper conventions for English
+        Dim ti As TextInfo = CultureInfo.CurrentCulture.TextInfo
 
         emptyFinder = False
         'if statements that check that the incoming strings are present and not empty or null
@@ -111,7 +115,7 @@ Public Class AddressLabelForm
             lettersOfState = String.Concat(StateTextBox.Text.Where(AddressOf Char.IsLetter))
 
             If Len(StateTextBox.Text) = 2 Then
-                fullAddress = CityTextBox.Text & ", " & UCase(StateTextBox.Text) & " " & zipInt
+                fullAddress = ti.ToTitleCase(CityTextBox.Text) & ", " & UCase(StateTextBox.Text) & " " & zipInt
             Else
                 formatErrorsTracker = formatErrors & "Please use the State Abbreviation" & vbNewLine
                 formatErrors = formatErrorsTracker
@@ -120,7 +124,7 @@ Public Class AddressLabelForm
             End If
             'Display will only be shown if there are no errors with the inputs
             If foundError = False Then
-                displayText = fullName & vbNewLine & StreetAddressTextBox.Text & vbNewLine & fullAddress
+                displayText = fullName & vbNewLine & ti.ToTitleCase(StreetAddressTextBox.Text) & vbNewLine & fullAddress
             ElseIf foundError = True Then
                 MsgBox(formatErrorsTracker)
                 displayText = ""
