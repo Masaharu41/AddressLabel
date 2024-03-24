@@ -48,6 +48,7 @@ Public Class AddressLabelForm
         Dim fullName As String
         Dim fullAddress As String
         Dim onlyStateLetters As String
+        Dim onlyCityLetters As String
         Dim zipInt As Integer
         Dim formatErrorsTracker As String
         Dim formatErrors As String
@@ -115,10 +116,10 @@ Public Class AddressLabelForm
             'Requires that the state is only two letters long and converts to letters only
 
             onlyStateLetters = String.Concat(StateTextBox.Text.Where(AddressOf Char.IsLetter))
-
+            onlyCityLetters = String.Concat(CityTextBox.Text.Where(AddressOf Char.IsLetter))
             If Len(onlyStateLetters) = 2 Then
 
-                fullAddress = ti.ToTitleCase(CityTextBox.Text) & ", " & UCase(onlyStateLetters) & " " & zipInt
+                fullAddress = ti.ToTitleCase(onlyCityLetters) & ", " & UCase(onlyStateLetters) & " " & zipInt
             Else
                 formatErrorsTracker = formatErrors & "Please use the State Abbreviation" & vbNewLine
                 formatErrors = formatErrorsTracker
@@ -146,8 +147,9 @@ Public Class AddressLabelForm
         If String.IsNullOrEmpty(Val) Then
             Return Val
         End If
-
-        Dim array() As Char = Val.ToCharArray
+        Dim lowerstring As String
+        lowerstring = LCase(Val)
+        Dim array() As Char = lowerstring.ToCharArray
 
         array(0) = Char.ToUpper(array(0))
 
